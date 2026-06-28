@@ -79,12 +79,14 @@ h2 {
 
 /* --- Navigation --- */
 .navbar {
-    background-color: #f4f1ea;
-    padding: 5px 0;
+    background-color: rgba(249, 247, 242, 0.94);
+    padding: 6px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(76, 88, 59, 0.12);
+    box-shadow: 0 10px 30px rgba(44, 44, 44, 0.06);
+    backdrop-filter: blur(14px);
 }
 
 .nav-flex {
@@ -94,36 +96,52 @@ h2 {
 }
 
 .logo img {
-    height: 75px; /* Adjust based on your logo file */
+    height: 68px; /* Adjust based on your logo file */
+    transition: transform 0.25s ease;
 }
 
 .logo a {
     display: inline-block;
 }
 
+.logo a:hover img {
+    transform: translateY(-1px);
+}
+
 .nav-links {
     display: flex;
-    gap: 30px;  
+    gap: 8px;
     align-items: center;
 }
 
 .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 8px 12px;
+    border-radius: 999px;
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--color-olive);
 }
 
-.nav-links a:hover { color: var(--color-rust); }
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: rgba(176, 80, 54, 0.1);
+    color: var(--color-rust);
+}
 
 .btn-nav {
-    border: 1px solid var(--color-rust);
-    padding: 8px 20px;
-    border-radius: 4px;
-    color: var(--color-rust) !important;
+    border: 1px solid rgba(176, 80, 54, 0.9);
+    padding: 8px 18px !important;
+    border-radius: 999px;
+    background-color: var(--color-rust);
+    color: white !important;
+    box-shadow: 0 8px 18px rgba(176, 80, 54, 0.18);
 }
 
 .btn-nav:hover {
-    background-color: var(--color-rust);
+    background-color: #94442f;
     color: white !important;
 }
 
@@ -132,7 +150,7 @@ h2 {
 /* --- Hero Section --- */
 .hero {
     height: 85vh;
-    background: url(Images/background.png);
+    background: url(Images/background.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -275,6 +293,7 @@ h2 {
     height: 250px;
     overflow: hidden;
     position: relative;
+    background: linear-gradient(120deg, #eee8dc, #f8f5ee);
 }
 
 .card-img img {
@@ -774,6 +793,18 @@ footer {
 .custom-request .btn-primary:hover {
     background-color: var(--color-rust);
     color: white;
+}
+
+.custom-request-image {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-request-image img {
+    width: min(100%, 360px);
+    max-height: 420px;
+    object-fit: cover;
+    object-position: center top;
 }
 
 /* Mobile responsiveness for category menu */
@@ -1364,6 +1395,7 @@ footer {
     max-width: 1200px;
     margin: 20px auto 40px auto;
     padding: 0 20px;
+    background: transparent;
 }
 
 /* The Main Image takes up the whole Left Side */
@@ -1374,6 +1406,28 @@ footer {
     cursor: pointer;
     overflow: hidden;
     border-radius: 12px 0 0 12px;
+    background: linear-gradient(120deg, #eee8dc, #f8f5ee);
+}
+
+.mobile-gallery-cue {
+    display: none;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 999px;
+    background: rgba(30, 26, 22, 0.72);
+    color: white;
+    padding: 10px 14px;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    z-index: 2;
 }
 
 /* The Container for the 4 small images */
@@ -1390,6 +1444,7 @@ footer {
     height: 100%;
     cursor: pointer;
     overflow: hidden;
+    background: linear-gradient(120deg, #eee8dc, #f8f5ee);
 }
 
 /* Round the corners of the outer images */
@@ -1417,6 +1472,7 @@ footer {
     }
     .side-img-item { display: none; } /* Hide small images on phone */
     .main-img { border-radius: 0; }
+    .mobile-gallery-cue { display: inline-flex; }
 }
 /* --- THE "View All" OVERLAY --- */
 .img-overlay {
@@ -1484,6 +1540,7 @@ footer {
     max-height: 85%;
     border-radius: 4px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    touch-action: pan-y;
 }
 
 .close-btn {
@@ -1527,6 +1584,20 @@ footer {
 /* --- Refined Property Detail Page --- */
 .property-heading {
     margin: 36px auto 18px auto;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    color: var(--color-olive);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.back-link:hover {
+    color: var(--color-rust);
 }
 
 .property-heading .region-label {
@@ -1745,4 +1816,48 @@ footer {
     border-radius: 8px;
     color: var(--color-text-light);
     text-align: center;
+}
+
+.philosophy,
+.villas,
+.intro-text,
+.exp-section,
+.agri-intro,
+.pillars,
+.agri-list,
+.values-section,
+.simple-banner,
+.inquire-section,
+.keep-dreaming {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.experiences,
+.founder-story,
+.custom-request,
+.harvest-banner {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
+@media (max-width: 768px) {
+    .philosophy,
+    .villas,
+    .intro-text,
+    .exp-section,
+    .agri-intro,
+    .pillars,
+    .agri-list,
+    .values-section,
+    .simple-banner,
+    .inquire-section,
+    .keep-dreaming,
+    .experiences,
+    .founder-story,
+    .custom-request,
+    .harvest-banner {
+        padding-top: 52px;
+        padding-bottom: 52px;
+    }
 }

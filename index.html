@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -41,7 +41,7 @@
             <div class="search-bar">
                 <div class="search-item">
                     <label>Hvor?</label>
-                    <select>
+                    <select id="home-region">
                         <option>Toscana</option>
                         <option>Puglia</option>
                         <option>Sicilia</option>
@@ -49,13 +49,13 @@
                 </div>
                 <div class="search-item border-left">
                     <label>Innsjekk</label>
-                    <input type="date">
+                    <input type="date" id="home-arrival">
                 </div>
                 <div class="search-item border-left">
                     <label>Gjester</label>
-                    <input type="number" placeholder="2 voksne">
+                    <input type="number" id="home-guests" min="1" placeholder="2 voksne">
                 </div>
-                <button class="btn-search" onclick="window.location.href='inquire.html'">Sjekk tilgjengelighet</button>
+                <button class="btn-search" type="button" id="home-search-btn">Sjekk tilgjengelighet</button>
             </div>
         </div>
     </header>
@@ -65,7 +65,7 @@
             <span class="subheading">Vår filosofi</span>
             <h2>Mer enn et sted å bo</h2>
             <p>Hos Ekte Italia tror vi på luksusen i det enkle. Vi gir deg ikke bare en nøkkel; vi åpner døren til italiensk hverdagsliv, lokale smaker og varme møter.</p>
-            <img src="Images/background.png" alt="Italiensk landskap" class="divider-img">
+            <img src="Images/background.jpg" alt="Italiensk landskap" class="divider-img" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -77,9 +77,9 @@
             </div>
 
             <div class="grid-3">
-                <div class="card">
+                <a href="property.html?id=1" class="card villa-card-link">
                     <div class="card-img">
-                        <img src="Images/villas La Tanna/Appartamento Chardonnay/Agriturismo-la-tanna-appartamento-vacanze-chardonnay-01.jpg" alt="La Tanna Chardonnay">
+                        <img src="Images/villas La Tanna/Appartamento Chardonnay/Agriturismo-la-tanna-appartamento-vacanze-chardonnay-01.jpg" alt="La Tanna Chardonnay" loading="lazy" decoding="async">
                         <span class="tag">Toscana</span>
                     </div>
                     <div class="card-body">
@@ -94,11 +94,11 @@
                             <span class="price">Pris på forespørsel</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="card">
+                <a href="property.html?id=2" class="card villa-card-link">
                     <div class="card-img">
-                        <img src="Images/villas La Tanna/Appartamento Malvasia/05_Camera_01.jpg" alt="La Tanna Malvasia">
+                        <img src="Images/villas La Tanna/Appartamento Malvasia/05_Camera_01.jpg" alt="La Tanna Malvasia" loading="lazy" decoding="async">
                         <span class="tag">Toscana</span>
                     </div>
                     <div class="card-body">
@@ -113,11 +113,11 @@
                             <span class="price">Pris på forespørsel</span>
                         </div>
                     </div>
-                </div>
+                </a>
 
-                <div class="card">
+                <a href="property.html?id=5" class="card villa-card-link">
                     <div class="card-img">
-                        <img src="Images/villas La Tanna/Appartamento Vermentino/SOGGIORNO_01.jpg" alt="La Tanna Vermentino">
+                        <img src="Images/villas La Tanna/Appartamento Vermentino/SOGGIORNO_01.jpg" alt="La Tanna Vermentino" loading="lazy" decoding="async">
                         <span class="tag">Toscana</span>
                     </div>
                     <div class="card-body">
@@ -132,7 +132,7 @@
                             <span class="price">Pris på forespørsel</span>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -190,6 +190,25 @@
         hamburger.addEventListener("click", () => {
             navLinks.classList.toggle("nav-active");
             hamburger.classList.toggle("toggle");
+        });
+
+        document.getElementById("home-search-btn").addEventListener("click", () => {
+            const params = new URLSearchParams();
+            const region = document.getElementById("home-region").value;
+            const arrival = document.getElementById("home-arrival").value;
+            const guests = document.getElementById("home-guests").value;
+
+            if (region) params.set("region", region);
+            if (arrival) params.set("arrival", arrival);
+            if (guests) params.set("adults", guests);
+
+            window.location.href = `inquire.html${params.toString() ? `?${params.toString()}` : ""}`;
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const linkPage = link.getAttribute("href").split("?")[0];
+            if (linkPage === currentPage) link.classList.add("active");
         });
     </script>
 </body>

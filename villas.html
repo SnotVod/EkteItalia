@@ -175,7 +175,7 @@
                 const cardHTML = `
                     <a class="card villa-card-link" href="${detailUrl}" aria-label="Se detaljer for ${villa.name}">
                         <div class="card-img">
-                            <img src="${villa.image}" alt="${villa.name}">
+                            <img src="${villa.image}" alt="${villa.name}" loading="lazy" decoding="async">
                             ${tagHTML}
                         </div>
                         <div class="card-body">
@@ -247,6 +247,12 @@
         document.getElementById("apply-filters").addEventListener("click", applyFilters);
 
         displayVillas(villasData);
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const linkPage = link.getAttribute("href").split("?")[0];
+            if (linkPage === currentPage) link.classList.add("active");
+        });
     </script>
 </body>
 </html>

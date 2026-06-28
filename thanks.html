@@ -116,6 +116,12 @@
             navLinks.classList.toggle("nav-active");
             hamburger.classList.toggle("toggle");
         });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const linkPage = link.getAttribute("href").split("?")[0];
+            if (linkPage === currentPage) link.classList.add("active");
+        });
     </script>
 </body>
 </html>

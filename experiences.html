@@ -174,7 +174,7 @@
                 <p>Ser du ikke helt det du leter etter? Fortell oss hva dere drømmer om, så undersøker vi mulighetene manuelt.</p>
                 <a href="inquire.html?experience=Skreddersydd%20reiseopplevelse" class="btn-primary">Send forespørsel</a>
             </div>
-            <div class="split-image">
+            <div class="split-image custom-request-image">
                 <img src="Images/Serena.png" alt="Skreddersydd reiseplanlegging" loading="lazy" decoding="async">
             </div>
         </div>
@@ -247,6 +247,12 @@
                 const sectionId = link.getAttribute("href").replace("#", "");
                 setActiveCategory(sectionId);
             });
+        });
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const linkPage = link.getAttribute("href").split("?")[0];
+            if (linkPage === currentPage) link.classList.add("active");
         });
     </script>
 </body>

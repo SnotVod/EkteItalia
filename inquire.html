@@ -191,6 +191,9 @@
         const params = new URLSearchParams(window.location.search);
         const selectedProperty = params.get("property");
         const selectedExperience = params.get("experience");
+        const selectedRegion = params.get("region");
+        const selectedArrival = params.get("arrival");
+        const selectedAdults = params.get("adults");
         const selectedRequest = document.getElementById("selectedRequest");
         const selectedRequestText = document.getElementById("selectedRequestText");
 
@@ -203,6 +206,25 @@
             document.getElementById("selectedPropertyHidden").value = selectedProperty || "";
             document.getElementById("selectedExperienceHidden").value = selectedExperience || "";
         }
+
+        if (selectedRegion) {
+            const regionSelect = document.querySelector('select[name="region"]');
+            regionSelect.value = selectedRegion;
+        }
+
+        if (selectedArrival) {
+            document.querySelector('input[name="arrival_date"]').value = selectedArrival;
+        }
+
+        if (selectedAdults) {
+            document.querySelector('input[name="adults"]').value = selectedAdults;
+        }
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            const currentPage = window.location.pathname.split("/").pop() || "index.html";
+            const linkPage = link.getAttribute("href").split("?")[0];
+            if (linkPage === currentPage) link.classList.add("active");
+        });
 
         document.getElementById("inquireForm").addEventListener("submit", function(event) {
             event.preventDefault();
