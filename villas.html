@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Villas | Ekte Italia</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <a href="index.html"><img src="Images/Logo.png" alt="Ekte Italia Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agriturismo.html" class="active">Agriturismo</a></li>
+                <li><a href="villas.html" class="active">Villas</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="inquire.html" class="btn-nav">Inquire</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Our Collection</h1>
+            <p>Handpicked homes with soul, from the rolling hills of Tuscany to the coasts of Sicily.</p>
+        </div>
+    </header>
+
+    <div class="container listing-layout">
+        
+        <aside class="sidebar">
+            <div class="filter-group">
+                <h3>Region</h3>
+                <label class="checkbox-container">Tuscany
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Umbria
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Puglia
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Sicily
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Guests</h3>
+                <select class="filter-select">
+                    <option>Any</option>
+                    <option>2-4 Guests</option>
+                    <option>5-8 Guests</option>
+                    <option>9+ Guests</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <h3>Features</h3>
+                <label class="checkbox-container">Private Pool
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Air Conditioning
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Chef Available
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="checkbox-container">Sea View
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </div>
+            
+            <button class="btn-primary w-100">Update Results</button>
+        </aside>
+
+        <main class="property-grid">
+            
+            <div class="sort-bar">
+                <span>Showing All properties</span>
+                <select>
+                    <option>Sort by: Recommended</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                </select>
+            </div>
+
+            <div class="grid-2-col" id="villa-container">
+                
+            </div>
+            
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">&rarr;</a>
+            </div>
+
+        </main>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Ekte Italia</h3>
+                <p>Authentic rentals for the discerning traveler.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Experiences</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>hei@ekteitalia.no</li>
+                    <li>+47 123 45 678</li>
+                    <li><i class="fab fa-instagram"></i> @ekteitalia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Ekte Italia. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        // Toggle the navigation menu
+        navLinks.classList.toggle("nav-active");
+        
+        // Optional: Animate the hamburger icon to an 'X'
+        hamburger.classList.toggle("toggle");
+    });
+</script>
+<script src="data.js"></script>
+
+<script>
+    const container = document.getElementById("villa-container");
+
+    function displayVillas(items) {
+        // Clear container first
+        container.innerHTML = "";
+
+        // Loop through each item in the database
+        items.forEach(villa => {
+            
+            // Handle the 'Tag' (only show if it exists)
+            let tagHTML = villa.tag ? `<span class="tag">${villa.tag}</span>` : '';
+
+            // Create the HTML card
+            const cardHTML = `
+                <div class="card">
+                    <div class="card-img">
+                        <a href="property.html?id=${villa.id}">
+                            <img src="${villa.image}" alt="${villa.name}">
+                        </a>
+                        ${tagHTML}
+                        <span class="fav-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                    <div class="card-body">
+                        <span class="region">${villa.region}</span>
+                        <h3>${villa.name}</h3>
+                        
+                        <p class="description">${villa.shortDesc}</p>
+                        
+                        <ul class="specs">
+                            <li><i class="fas fa-user-friends"></i> ${villa.guests} Guests</li>
+                            <li><i class="fas fa-bed"></i> ${villa.beds} Beds</li>
+                            <li><i class="fas fa-ruler-combined"></i> ${villa.sqm} m²</li>
+                        </ul>
+                        
+                        <div class="card-footer">
+                            <span class="price">${villa.price}</span>
+                            <a href="property.html?id=${villa.id}" class="btn-text">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add it to the page
+            container.innerHTML += cardHTML;
+        });
+    }
+
+    // Run the function immediately when page loads
+    displayVillas(villasData);
+</script>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Ekte Italia</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <a href="index.html"><img src="Images/Logo.png" alt="Ekte Italia Logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agriturismo.html" class="active">Agriturismo</a></li>
+                <li><a href="villas.html">Villas</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="inquire.html" class="btn-nav">Inquire</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-about">
+        <div class="hero-content">
+            <h1>Our Story</h1>
+            <p>Bridging the Nordic spirit with the Italian soul.</p>
+        </div>
+    </header>
+
+    <section class="founder-story">
+        <div class="container split-layout reverse-mobile">
+            <div class="split-image">
+                <img src="Images/Serena.png" alt="Serena Founder">
+            </div>
+            <div class="split-text">
+                <span class="subheading">Meet the Founder</span>
+                <h2>From Italy to Norway</h2>
+                <p>Hei, I am Serena.</p>
+                <p>My journey began in the sun-drenched piazzas of Italy, where I spent years living, working, and soaking in the <em>dolce vita</em>. I learned that Italy isn't just a destination; it's a feeling. It's the smell of fresh basil, the sound of laughter over a shared meal, and the slow rhythm of the afternoon.</p>
+                <p>When I moved to Norway, I fell in love with the nature and the people, but I realized something was missing. Many travelers were visiting Italy, but few were seeing the <em>real</em> Italy.</p>
+                <p>I founded <strong>Ekte Italia</strong> to be that bridge. I want to show Norwegians the hidden gems, the authentic homes, and the local friends I left behind. I don't just book you a house; I welcome you into a community.</p>
+                
+                <div class="signature">Serena</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section bg-cream">
+        <div class="container">
+            <div class="text-center mb-50">
+                <h2>Why Travel With Us?</h2>
+            </div>
+            <div class="grid-3">
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Personally Vetted</h3>
+                    <p>I have personally visited every villa and met every owner. If I wouldn't stay there, I won't send you there.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-globe-europe"></i>
+                    <h3>Local & Nordic</h3>
+                    <p>We speak your language, but we know the Italian ways. We bridge the cultural gap so you can relax.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Unlock the Hidden</h3>
+                    <p>Forget tourist traps. We give you the keys to secret beaches, family-run trattorias, and private vineyards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="simple-banner">
+        <div class="container">
+            <h2>Ready to plan your authentic escape?</h2>
+            <p>Let's have a chat about your dream holiday.</p>
+            <a href="#" class="btn-primary">Contact Serena</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Ekte Italia</h3>
+                <p>Authentic rentals for the discerning traveler.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="villas.html">Villas</a></li>
+                    <li><a href="experiences.html">Experiences</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>hei@ekteitalia.no</li>
+                    <li>+47 123 45 678</li>
+                    <li><i class="fab fa-instagram"></i> @ekteitalia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Ekte Italia. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        // Toggle the navigation menu
+        navLinks.classList.toggle("nav-active");
+        
+        // Optional: Animate the hamburger icon to an 'X'
+        hamburger.classList.toggle("toggle");
+    });
+</script>
+</body>
+</html>

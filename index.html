@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekte Italia | Authentic Villas & Experiences</title>
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <img src="Images/Logo.png" alt="Ekte Italia Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agriturismo.html" class="active">Agriturismo</a></li>
+                <li><a href="villas.html">Villas</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="inquire.html" class="btn-nav">Inquire</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Oppdag det ekte Italia</h1>
+            <p>Curated villas and authentic experiences for the slow traveler.</p>
+            
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>Where?</label>
+                    <select>
+                        <option>Tuscany</option>
+                        <option>Puglia</option>
+                        <option>Sicily</option>
+                    </select>
+                </div>
+                <div class="search-item border-left">
+                    <label>Check-in</label>
+                    <input type="date">
+                </div>
+                <div class="search-item border-left">
+                    <label>Guests</label>
+                    <input type="number" placeholder="2 Adults">
+                </div>
+                <button class="btn-search">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="philosophy">
+        <div class="container text-center">
+            <span class="subheading">Our Philosophy</span>
+            <h2>More than just a rental</h2>
+            <p>At Ekte Italia, we believe in the luxury of simplicity. We don't just hand you a key; we open the door to the Italian way of life. From stone farmhouses in the hills to private truffle hunting at dawn.</p>
+            <img src="Images/background.png" alt="Italian Landscape" class="divider-img">
+        </div>
+    </section>
+
+    <section class="villas bg-cream">
+        <div class="container">
+            <div class="section-header">
+                <h2>Handpicked Homes</h2>
+                <a href="#" class="view-all">View all properties &rarr;</a>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070&auto=format&fit=crop" alt="Villa Tuscany">
+                        <span class="tag">Tuscany</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Villa Rosmarino</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Chianti, Italy</p>
+                        <ul class="specs">
+                            <li><i class="fas fa-bed"></i> 4 Beds</li>
+                            <li><i class="fas fa-bath"></i> 3 Baths</li>
+                            <li><i class="fas fa-water"></i> Pool</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">From €350 / night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?q=80&w=2070&auto=format&fit=crop" alt="Villa Puglia">
+                        <span class="tag">Puglia</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Trullo Antico</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Ostuni, Italy</p>
+                        <ul class="specs">
+                            <li><i class="fas fa-bed"></i> 2 Beds</li>
+                            <li><i class="fas fa-bath"></i> 1 Bath</li>
+                            <li><i class="fas fa-tree"></i> Garden</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">From €220 / night</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1972&auto=format&fit=crop" alt="Villa Sicily">
+                        <span class="tag">Sicily</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Casa del Sole</h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> Noto, Italy</p>
+                        <ul class="specs">
+                            <li><i class="fas fa-bed"></i> 6 Beds</li>
+                            <li><i class="fas fa-bath"></i> 5 Baths</li>
+                            <li><i class="fas fa-water"></i> Sea View</li>
+                        </ul>
+                        <div class="card-footer">
+                            <span class="price">From €550 / night</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experiences">
+        <div class="container split-layout">
+            <div class="split-text">
+                <span class="subheading">Curated Moments</span>
+                <h2>Taste & Create</h2>
+                <p>Complete your stay with experiences that connect you to the land. Whether it's a cooking class with Nonna, a private vineyard tour, or renting a vintage Vespa.</p>
+                <ul class="exp-list">
+                    <li><i class="fas fa-wine-glass"></i> Wine Tasting & Tours</li>
+                    <li><i class="fas fa-utensils"></i> Private Chef Dinners</li>
+                    <li><i class="fas fa-hiking"></i> Guided Nature Walks</li>
+                </ul>
+                <a href="#" class="btn-primary">Explore Experiences</a>
+            </div>
+            <div class="split-image">
+                <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop" alt="Italian Cooking">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>Ekte Italia</h3>
+                <p>Authentic rentals for the discerning traveler.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">Villas</a></li>
+                    <li><a href="#">Experiences</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li>hei@ekteitalia.no</li>
+                    <li>+47 123 45 678</li>
+                    <li><i class="fab fa-instagram"></i> @ekteitalia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Ekte Italia. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        // Toggle the navigation menu
+        navLinks.classList.toggle("nav-active");
+        
+        // Optional: Animate the hamburger icon to an 'X'
+        hamburger.classList.toggle("toggle");
+    });
+</script>
+</body>
+</html>

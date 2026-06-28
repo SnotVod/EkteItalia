@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | Ekte Italia</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/jpeg" href="Logo.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo"><a href="index.html"><img src="Images/Logo.png" alt="Logo"></a></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="agriturismo.html" class="active">Agriturismo</a></li>
+                <li><a href="villas.html" class="active">Villas</a></li>
+                <li><a href="experiences.html">Experiences</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="inquire.html" class="btn-nav">Inquire</a></li>
+            </ul>
+        </div>
+    </nav>
+<div class="gallery-container" id="gallery-container-box">
+        <div class="main-img" id="hero-img">
+            </div>
+        
+        <div class="side-imgs" id="gallery-grid">
+            </div>
+    </div>
+
+    <div class="container property-layout">
+        
+        <div class="prop-details">
+            <span class="region-label" id="prop-region">Region</span>
+            <h1 id="prop-title">Loading...</h1>
+            
+            <div class="quick-stats" id="prop-stats"></div>
+
+            <hr class="divider">
+
+            <div class="description-box">
+                <h3>About this home</h3>
+                <p id="prop-desc">Loading details...</p>
+            </div>
+
+            <hr class="divider">
+
+            <div class="amenities-box">
+                <h3>Amenities</h3>
+                <ul class="amenities-grid" id="prop-amenities"></ul>
+            </div>
+        </div>
+
+        <aside class="prop-sidebar">
+            <div class="booking-card">
+                <div class="price-header">
+                    <span id="prop-price">€000</span> <span class="per-week">/ week</span>
+                </div>
+                <div class="booking-form-fake">
+                    <div class="date-picker">Check-in - Check-out</div>
+                    <div class="guest-picker">Guests</div>
+                </div>
+                <a href="inquire.html" class="btn-primary w-100 mt-20">Request to Book</a>
+                <p class="tiny-text text-center mt-10">You won't be charged yet</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024 Ekte Italia</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div id="lightbox-counter" class="lightbox-counter"></div>
+        <span class="prev-btn" onclick="changeSlide(-1)">&#10094;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <span class="next-btn" onclick="changeSlide(1)">&#10095;</span>
+    </div>
+
+    <script src="data.js"></script>
+    <script>
+        // --- SETUP PAGE DATA ---
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const villa = villasData.find(item => item.id == id);
+
+        // Global variables for the Lightbox
+        let currentImageIndex = 0;
+        let allImages = []; 
+
+        if (villa) {
+            document.title = villa.name + " | Ekte Italia";
+
+            // Build Image List (Cover + Gallery)
+            allImages.push(villa.image);
+            if (villa.gallery) {
+                allImages = allImages.concat(villa.gallery);
+            }
+
+            // --- RENDER MAIN IMAGE ---
+            // Index 0 is always the main image
+            document.getElementById('hero-img').innerHTML = 
+                `<img src="${allImages[0]}" onclick="openLightbox(0)" alt="${villa.name}">`;
+
+            // --- RENDER SIDE IMAGES ---
+            const sideContainer = document.getElementById('gallery-grid');
+            let sideHtml = "";
+            const totalImages = allImages.length;
+
+            // Loop starting from 1 (because 0 is the main image)
+            // We only want to fill 4 slots (indices 1, 2, 3, 4)
+            for(let i = 1; i < 5; i++) {
+                if(i >= totalImages) break; // Stop if we run out of images
+
+                // If this is the 4th slot AND there are more hidden images
+                if (i === 4 && totalImages > 5) {
+                    const remaining = totalImages - 5;
+                    sideHtml += `
+                        <div class="side-img-item" onclick="openLightbox(${i})">
+                            <img src="${allImages[i]}" alt="More">
+                            <div class="img-overlay">+${remaining + 1} photos</div>
+                        </div>`;
+                } else {
+                    sideHtml += `
+                        <div class="side-img-item" onclick="openLightbox(${i})">
+                            <img src="${allImages[i]}" alt="Gallery">
+                        </div>`;
+                }
+            }
+            sideContainer.innerHTML = sideHtml;
+
+            // --- RENDER TEXT ---
+            document.getElementById('prop-region').innerText = villa.region;
+            document.getElementById('prop-title').innerText = villa.name;
+            document.getElementById('prop-price').innerText = villa.price.split(' ')[0]; 
+            document.getElementById('prop-desc').innerText = villa.longDesc;
+            document.getElementById('prop-stats').innerHTML = `
+                <span>${villa.guests} guests</span> · 
+                <span>${villa.beds} beds</span> · 
+                <span>${villa.baths || 1} baths</span>
+            `;
+
+            const amenList = document.getElementById('prop-amenities');
+            villa.amenities.forEach(am => {
+                amenList.innerHTML += `<li><i class="fas fa-check"></i> ${am}</li>`;
+            });
+
+        } else {
+            // Redirect if ID is wrong
+            window.location.href = 'villas.html';
+        }
+
+       // --- LIGHTBOX FUNCTIONS (Global Scope) ---
+    
+        // Helper function to update the text (e.g. "1 / 6")
+        function updateCounter() {
+            const counterElement = document.getElementById('lightbox-counter');
+            if(counterElement) {
+                const total = allImages.length;
+                const current = currentImageIndex + 1; // Index starts at 0, so we add 1
+                counterElement.innerText = `${current} / ${total}`;
+            }
+        }
+
+        window.openLightbox = function(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('lightbox');
+            const modalImg = document.getElementById('lightbox-img');
+            
+            if(modal && modalImg) {
+                modal.style.display = "flex";
+                modalImg.src = allImages[currentImageIndex];
+                updateCounter(); // <--- Update counter when opening
+            }
+        }
+
+        window.closeLightbox = function() {
+            document.getElementById('lightbox').style.display = "none";
+        }
+
+        window.changeSlide = function(n) {
+            currentImageIndex += n;
+            
+            if (currentImageIndex >= allImages.length) {
+                currentImageIndex = 0;
+            }
+            if (currentImageIndex < 0) {
+                currentImageIndex = allImages.length - 1;
+            }
+            
+            document.getElementById('lightbox-img').src = allImages[currentImageIndex];
+            updateCounter(); // <--- Update counter when changing
+        }
+
+        // Close when clicking the black background
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').style.display === "flex") {
+                if (e.key === "ArrowLeft") changeSlide(-1);
+                if (e.key === "ArrowRight") changeSlide(1);
+                if (e.key === "Escape") closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
