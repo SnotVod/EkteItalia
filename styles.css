@@ -97,6 +97,10 @@ h2 {
     height: 75px; /* Adjust based on your logo file */
 }
 
+.logo a {
+    display: inline-block;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;  
@@ -136,6 +140,22 @@ h2 {
     justify-content: center;
     text-align: center;
     position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(36, 32, 28, 0.64), rgba(36, 32, 28, 0.34) 45%, rgba(36, 32, 28, 0.58));
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
@@ -143,13 +163,14 @@ h2 {
     font-size: 4rem;
     color: var(--color-white);
     margin-bottom: 10px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 0 3px 18px rgba(0,0,0,0.55);
 }
 
 .hero-content p {
-    color: #f0f0f0;
+    color: #fff8ef;
     font-size: 1.2rem;
     margin-bottom: 40px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 
 /* Search Bar */
@@ -634,7 +655,7 @@ footer {
 /* Hero for Experiences (Different Image) */
 .hero-experiences {
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-aperitivi.webp');
+    background: linear-gradient(90deg, rgba(28, 24, 20, 0.72), rgba(28, 24, 20, 0.42)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-aperitivi.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -774,7 +795,7 @@ footer {
 /* Hero Image - Soft and Personal */
 .hero-about {
     height: 50vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-vacanze-in-toscana.webp');
+    background: linear-gradient(90deg, rgba(28, 24, 20, 0.68), rgba(28, 24, 20, 0.36)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-vacanze-in-toscana.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -1193,7 +1214,7 @@ footer {
 /* Hero Section - Rustic Field Vibe */
 .hero-agri {
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-veduta-aerea.jpg');
+    background: linear-gradient(90deg, rgba(28, 24, 20, 0.68), rgba(28, 24, 20, 0.36)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-veduta-aerea.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
