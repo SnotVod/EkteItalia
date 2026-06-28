@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Villas | Ekte Italia</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    
+    <title>Boliger | Ekte Italia</title>
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,15 +17,15 @@
     <nav class="navbar">
         <div class="container nav-flex">
             <div class="logo">
-                <a href="index.html"><img src="Images/Logo.png" alt="Ekte Italia Logo"></a>
+                <a href="index.html"><img src="Images/Logo.png" alt="Ekte Italia logo"></a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="agriturismo.html" class="active">Agriturismo</a></li>
-                <li><a href="villas.html" class="active">Villas</a></li>
-                <li><a href="experiences.html">Experiences</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="inquire.html" class="btn-nav">Inquire</a></li>
+                <li><a href="index.html">Hjem</a></li>
+                <li><a href="agriturismo.html">Agriturismo</a></li>
+                <li><a href="villas.html" class="active">Boliger</a></li>
+                <li><a href="experiences.html">Opplevelser</a></li>
+                <li><a href="about.html">Om oss</a></li>
+                <li><a href="inquire.html" class="btn-nav">Forespør</a></li>
             </ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
@@ -36,89 +35,83 @@
 
     <header class="page-header">
         <div class="container">
-            <h1>Our Collection</h1>
-            <p>Handpicked homes with soul, from the rolling hills of Tuscany to the coasts of Sicily.</p>
+            <h1>Våre boliger</h1>
+            <p>Håndplukkede opphold med sjel, fra rolige åser i Toscana til autentiske italienske hjem.</p>
         </div>
     </header>
 
     <div class="container listing-layout">
-        
         <aside class="sidebar">
             <div class="filter-group">
+                <h3>Søk</h3>
+                <input type="search" id="villa-search" class="filter-input" placeholder="Søk etter bolig, region eller fasilitet">
+            </div>
+
+            <div class="filter-group">
                 <h3>Region</h3>
-                <label class="checkbox-container">Tuscany
-                    <input type="checkbox" checked>
+                <label class="checkbox-container">Toscana
+                    <input type="checkbox" class="region-filter" value="Toscana" checked>
                     <span class="checkmark"></span>
                 </label>
                 <label class="checkbox-container">Umbria
-                    <input type="checkbox">
+                    <input type="checkbox" class="region-filter" value="Umbria">
                     <span class="checkmark"></span>
                 </label>
                 <label class="checkbox-container">Puglia
-                    <input type="checkbox">
+                    <input type="checkbox" class="region-filter" value="Puglia">
                     <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container">Sicily
-                    <input type="checkbox">
+                <label class="checkbox-container">Sicilia
+                    <input type="checkbox" class="region-filter" value="Sicilia">
                     <span class="checkmark"></span>
                 </label>
             </div>
 
             <div class="filter-group">
-                <h3>Guests</h3>
-                <select class="filter-select">
-                    <option>Any</option>
-                    <option>2-4 Guests</option>
-                    <option>5-8 Guests</option>
-                    <option>9+ Guests</option>
+                <h3>Gjester</h3>
+                <select class="filter-select" id="guest-filter">
+                    <option value="any">Alle</option>
+                    <option value="2-4">2-4 gjester</option>
+                    <option value="5-8">5-8 gjester</option>
+                    <option value="9">9+ gjester</option>
                 </select>
             </div>
 
             <div class="filter-group">
-                <h3>Features</h3>
-                <label class="checkbox-container">Private Pool
-                    <input type="checkbox">
+                <h3>Fasiliteter</h3>
+                <label class="checkbox-container">Felles basseng
+                    <input type="checkbox" class="amenity-filter" value="Felles basseng">
                     <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container">Air Conditioning
-                    <input type="checkbox">
+                <label class="checkbox-container">Klimaanlegg
+                    <input type="checkbox" class="amenity-filter" value="Klimaanlegg">
                     <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container">Chef Available
-                    <input type="checkbox">
+                <label class="checkbox-container">Kjøkken
+                    <input type="checkbox" class="amenity-filter" value="Kjøkken">
                     <span class="checkmark"></span>
                 </label>
-                <label class="checkbox-container">Sea View
-                    <input type="checkbox">
+                <label class="checkbox-container">Uteområde
+                    <input type="checkbox" class="amenity-filter" value="Uteområde">
                     <span class="checkmark"></span>
                 </label>
             </div>
-            
-            <button class="btn-primary w-100">Update Results</button>
+
+            <button class="btn-primary w-100" id="apply-filters" type="button">Oppdater resultat</button>
         </aside>
 
         <main class="property-grid">
-            
             <div class="sort-bar">
-                <span>Showing All properties</span>
-                <select>
-                    <option>Sort by: Recommended</option>
-                    <option>Price: Low to High</option>
-                    <option>Price: High to Low</option>
+                <span id="results-count">Viser alle boliger</span>
+                <select id="sort-select">
+                    <option value="recommended">Sorter etter: Anbefalt</option>
+                    <option value="guests-asc">Gjester: lavt til høyt</option>
+                    <option value="guests-desc">Gjester: høyt til lavt</option>
                 </select>
             </div>
 
-            <div class="grid-2-col" id="villa-container">
-                
-            </div>
-            
-            <div class="pagination">
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">&rarr;</a>
-            </div>
-
+            <div class="grid-2-col" id="villa-container"></div>
+            <p class="empty-state" id="empty-state" hidden>Ingen boliger passer søket ditt akkurat nå. Prøv færre filtre.</p>
         </main>
     </div>
 
@@ -126,18 +119,18 @@
         <div class="container footer-content">
             <div class="footer-col">
                 <h3>Ekte Italia</h3>
-                <p>Authentic rentals for the discerning traveler.</p>
+                <p>Autentiske opphold for reisende som vil oppleve det ekte Italia.</p>
             </div>
             <div class="footer-col">
-                <h4>Explore</h4>
+                <h4>Utforsk</h4>
                 <ul>
-                    <li><a href="#">Villas</a></li>
-                    <li><a href="#">Experiences</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="villas.html">Boliger</a></li>
+                    <li><a href="experiences.html">Opplevelser</a></li>
+                    <li><a href="about.html">Om oss</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contact</h4>
+                <h4>Kontakt</h4>
                 <ul>
                     <li>hei@ekteitalia.no</li>
                     <li>+47 123 45 678</li>
@@ -146,71 +139,114 @@
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2024 Ekte Italia. All rights reserved.</p>
+            <p>&copy; 2024 Ekte Italia. Alle rettigheter reservert.</p>
         </div>
     </footer>
-<script>
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
 
-    hamburger.addEventListener("click", () => {
-        // Toggle the navigation menu
-        navLinks.classList.toggle("nav-active");
-        
-        // Optional: Animate the hamburger icon to an 'X'
-        hamburger.classList.toggle("toggle");
-    });
-</script>
-<script src="data.js"></script>
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
 
-<script>
-    const container = document.getElementById("villa-container");
-
-    function displayVillas(items) {
-        // Clear container first
-        container.innerHTML = "";
-
-        // Loop through each item in the database
-        items.forEach(villa => {
-            
-            // Handle the 'Tag' (only show if it exists)
-            let tagHTML = villa.tag ? `<span class="tag">${villa.tag}</span>` : '';
-
-            // Create the HTML card
-            const cardHTML = `
-                <div class="card">
-                    <div class="card-img">
-                        <a href="property.html?id=${villa.id}">
-                            <img src="${villa.image}" alt="${villa.name}">
-                        </a>
-                        ${tagHTML}
-                        <span class="fav-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                    <div class="card-body">
-                        <span class="region">${villa.region}</span>
-                        <h3>${villa.name}</h3>
-                        
-                        <p class="description">${villa.shortDesc}</p>
-                        
-                        <ul class="specs">
-                            <li><i class="fas fa-user-friends"></i> ${villa.guests} Guests</li>
-                            <li><i class="fas fa-bed"></i> ${villa.beds} Beds</li>
-                            <li><i class="fas fa-ruler-combined"></i> ${villa.sqm} m²</li>
-                        </ul>
-                        
-                        <div class="card-footer">
-                            <span class="price">${villa.price}</span>
-                            <a href="property.html?id=${villa.id}" class="btn-text">View Details</a>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            // Add it to the page
-            container.innerHTML += cardHTML;
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("nav-active");
+            hamburger.classList.toggle("toggle");
         });
-    }
+    </script>
+    <script src="data.js"></script>
 
-    // Run the function immediately when page loads
-    displayVillas(villasData);
-</script>
+    <script>
+        const container = document.getElementById("villa-container");
+        const searchInput = document.getElementById("villa-search");
+        const guestFilter = document.getElementById("guest-filter");
+        const sortSelect = document.getElementById("sort-select");
+        const resultsCount = document.getElementById("results-count");
+        const emptyState = document.getElementById("empty-state");
+
+        function displayVillas(items) {
+            container.innerHTML = "";
+            emptyState.hidden = items.length !== 0;
+            resultsCount.innerText = items.length === villasData.length
+                ? "Viser alle boliger"
+                : `Viser ${items.length} av ${villasData.length} boliger`;
+
+            items.forEach(villa => {
+                let tagHTML = villa.tag ? `<span class="tag">${villa.tag}</span>` : '';
+                const detailUrl = `property.html?id=${villa.id}`;
+                const cardHTML = `
+                    <a class="card villa-card-link" href="${detailUrl}" aria-label="Se detaljer for ${villa.name}">
+                        <div class="card-img">
+                            <img src="${villa.image}" alt="${villa.name}">
+                            ${tagHTML}
+                        </div>
+                        <div class="card-body">
+                            <span class="region">${villa.region}</span>
+                            <h3>${villa.name}</h3>
+                            <p class="description">${villa.shortDesc}</p>
+                            <ul class="specs">
+                                <li><i class="fas fa-user-friends"></i> ${villa.guests} gjester</li>
+                                <li><i class="fas fa-bed"></i> ${villa.beds} senger</li>
+                                <li><i class="fas fa-bath"></i> ${villa.bathrooms} bad</li>
+                                <li><i class="fas fa-ruler-combined"></i> ${villa.sqm} m²</li>
+                            </ul>
+                            <div class="card-footer">
+                                <span class="price">${villa.price}</span>
+                                <span class="btn-text">Se detaljer</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        function selectedValues(selector) {
+            return Array.from(document.querySelectorAll(selector))
+                .filter(input => input.checked)
+                .map(input => input.value);
+        }
+
+        function applyFilters() {
+            const query = searchInput.value.trim().toLowerCase();
+            const selectedRegions = selectedValues(".region-filter");
+            const selectedAmenities = selectedValues(".amenity-filter");
+            const guestRange = guestFilter.value;
+
+            let results = villasData.filter(villa => {
+                const haystack = [
+                    villa.name,
+                    villa.region,
+                    villa.feature,
+                    villa.shortDesc,
+                    villa.longDesc,
+                    ...(villa.amenities || [])
+                ].join(" ").toLowerCase();
+
+                const matchesQuery = !query || haystack.includes(query);
+                const matchesRegion = selectedRegions.length === 0 || selectedRegions.includes(villa.region);
+                const matchesAmenities = selectedAmenities.every(amenity => (villa.amenities || []).includes(amenity));
+                const matchesGuests =
+                    guestRange === "any" ||
+                    (guestRange === "2-4" && villa.guests >= 2 && villa.guests <= 4) ||
+                    (guestRange === "5-8" && villa.guests >= 5 && villa.guests <= 8) ||
+                    (guestRange === "9" && villa.guests >= 9);
+
+                return matchesQuery && matchesRegion && matchesAmenities && matchesGuests;
+            });
+
+            if (sortSelect.value === "guests-asc") {
+                results = results.sort((a, b) => a.guests - b.guests);
+            }
+            if (sortSelect.value === "guests-desc") {
+                results = results.sort((a, b) => b.guests - a.guests);
+            }
+
+            displayVillas(results);
+        }
+
+        document.getElementById("apply-filters").addEventListener("click", applyFilters);
+
+        displayVillas(villasData);
+    </script>
+</body>
+</html>

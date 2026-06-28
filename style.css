@@ -652,7 +652,7 @@ h2 {
 
 .hero-experiences {
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-aperitivi.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -749,7 +749,7 @@ h2 {
    ========================================= */
 .hero-about {
     height: 50vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-vacanze-in-toscana.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -830,7 +830,7 @@ h2 {
    ========================================= */
 .hero-agri {
     height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1505576135118-2e0617947703?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-veduta-aerea.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -911,7 +911,7 @@ h2 {
 
 .harvest-banner {
     padding: 100px 0;
-    background: linear-gradient(rgba(107, 142, 90, 0.9), rgba(107, 142, 90, 0.9)), url('https://images.unsplash.com/photo-1560157973-503a746a5b29?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(107, 142, 90, 0.9), rgba(107, 142, 90, 0.9)), url('Images/villas La Tanna/Foto Agriturismo generiche/Agriturismo-la-tanna-degustazioni-gazebo.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
